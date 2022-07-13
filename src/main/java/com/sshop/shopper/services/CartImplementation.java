@@ -1,14 +1,11 @@
 package com.sshop.shopper.services;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sshop.shopper.entities.Cart;
 import com.sshop.shopper.entities.STATUS;
 import com.sshop.shopper.entities.products;
@@ -24,19 +21,23 @@ public class CartImplementation implements CartInterface{
     @Autowired
     public ProductRepository productRepoObj;
 
-    public List<Object> fetchAll(){
+    public ArrayList fetchAll() throws NoSuchElementException{
         float totalPrice=0;
+        int i=0;
+        ArrayList list = new ArrayList();
         List<Cart> c1 = cartRepoObj.findAll();
-        System.out.println(c1);
-        for(int i = 0; i<c1.size();i++){
+        for(i = 0; i<c1.size();i++){
             
             Optional<products> c2 = productRepoObj.findById(c1.get(i).getProductId());
             int c3 = c1.get(i).getCart_product_qty();
             totalPrice = totalPrice + (c3*c2.get().getProductPrice()); 
-            //return Arrays.asList(c2.get().getProductImage(),c2.get().getProductName(),c2.get().getProductPrice(),c2.get().getProductCategory(),c2.get().getProductDescription(),c2.get().getProductStatus());
+            list.add(Arrays.asList(c1.get(i).getCart_product_id(),c1.get(i).getCart_product_qty(),c2.get().getProductImage(),c2.get().getProductName(),c2.get().getProductPrice(),c2.get().getProductCategory(),c2.get().getProductDescription(),c2.get().getProductStatus()));  
+            list.add(totalPrice);
+            
     }
+        return list;
+
         
-        return null;
     
     
 }

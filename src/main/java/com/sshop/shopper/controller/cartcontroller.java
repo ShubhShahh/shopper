@@ -2,7 +2,8 @@ package com.sshop.shopper.controller;
 
 
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +26,7 @@ public class cartcontroller {
     private CartImplementation cartSrvObj;
 
     @GetMapping(value = "/api/cart")
-    public List<Object> fetchAll(){
+    public ArrayList fetchAll()throws NoSuchElementException{
         return cartSrvObj.fetchAll();
     }
     @PostMapping(value="/api/addtocart")

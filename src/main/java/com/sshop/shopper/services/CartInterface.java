@@ -2,7 +2,7 @@ package com.sshop.shopper.services;
 
 
 
-import java.util.List;
+import java.util.*;
 
 import javax.transaction.Transactional;
 
@@ -15,7 +15,7 @@ import com.sshop.shopper.entities.Cart;
 @Service
 @Transactional
 public interface CartInterface {
-    public List<Object> fetchAll();
+    public ArrayList fetchAll()throws NoSuchElementException;
     public String addToCart(Cart cartObj)throws IllegalArgumentException;
     public String deleteByCartId(String  cart_product_Id);
     public String findById(String productId);
