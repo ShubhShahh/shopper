@@ -4,12 +4,14 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sshop.shopper.entities.products;
-@Repository
-public interface ProductRepository extends JpaRepository<products, String>{
-    public Optional<products> findByProductName(String productName);
+import com.sshop.shopper.entities.Product;
 
-    public Optional<products> findById(String productId);
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, String>{
+   
+    public Optional<Product> findByProductName(String productName);
+    public Optional<Product> findById(String productId);
 
     
 }

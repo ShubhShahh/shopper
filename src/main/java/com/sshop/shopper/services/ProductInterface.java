@@ -3,15 +3,16 @@ package com.sshop.shopper.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.sshop.shopper.entities.products;
+import com.sshop.shopper.entities.Product;
 
 public interface ProductInterface {
-    public List<products> fetchAll();
-    public String addproduct(products productObj);
-    public Optional<products> fetchById(String productId);
-    public Optional<products> fetchByProductName(String productName);
-    public String updateProductById(products productObj);
-    public String deleteProductById(products productsObj);
-    // public String updateStatusById(products productsObj);
+    
+    public List<Product> fetchAll();
+    public String addproduct(Product productObj);
+    public Optional<Product> fetchById(String productId);
+    public Optional<Product> fetchByProductName(String productName);
+    public String updateProductById(Product productObj);
+    public String deleteProductById(Product productsObj);
+    public String updateStatusById(Product productsObj);
     
 }
