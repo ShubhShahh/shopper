@@ -12,6 +12,5 @@ import com.sshop.shopper.entities.Cart;
 public interface CartRepository extends JpaRepository<Cart, String> {
     
     public String deleteByProductId(String productId);
-    public Optional<Cart> findById(Cart productId);
 }
 
