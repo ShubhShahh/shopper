@@ -52,6 +52,7 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.0.1</version>
 				<configuration>
+				<appName>shopper</appName>
         		<processTypes>
 				<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.sshop.shopper</web>
 				</processTypes>
@@ -61,7 +62,13 @@
 			<artifactId>maven-assembly-plugin</artifactId>
 			</plugin>
 			<plugin><groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId></plugin>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>3.0.3</version>
+      </plugin>
 		</plugins>
 	</build>
 </project>
